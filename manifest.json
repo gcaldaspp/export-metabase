@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Export Metabase Grid to CSV",
+    "version": "1.0",
+    "description": "Exporta os dados do Metabase para CSV.",
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "Exportar"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
