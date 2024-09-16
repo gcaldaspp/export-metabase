@@ -18,15 +18,17 @@ function exportTableToCSV() {
 
     // Itera sobre todas as divs selecionadas
     cells.forEach(cell => {
+        if (cell.className == "TableInteractive-cellWrapper cursor-pointer") {
+            return
+        }
         // Adiciona o conteúdo de texto da célula seguido de uma vírgula
-        csvString += cell.innerText.trim() + ';';
-
+        var delimiter = ";"
         // Se a célula também tiver a classe 'TableInteractive-cellWrapper--lastColumn', adiciona uma quebra de linha
         if (cell.classList.contains('TableInteractive-cellWrapper--lastColumn')) {
             // Remove a última vírgula antes de adicionar a quebra de linha
-            csvString = csvString.slice(0, -1);
-            csvString += '\n';
+            delimiter = '\n';
         }
+         csvString += cell.innerText.trim() + delimiter
     });
 
     // Cria um arquivo Blob com os dados CSV
